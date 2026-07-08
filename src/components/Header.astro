@@ -132,11 +132,13 @@ const isActive = (href: string) =>
                     </svg>
                   </summary>
                   <ul class="mt-1 space-y-1 border-l-2 border-drop-300 pl-4">
-                    <li>
-                      <a href={item.href} class="block rounded-md px-3 py-2 text-sm font-semibold text-navy-800 hover:bg-drop-100">
-                        {item.label}: Overview
-                      </a>
-                    </li>
+                    {!item.children.some((child) => child.href === item.href) && (
+                      <li>
+                        <a href={item.href} class="block rounded-md px-3 py-2 text-sm font-semibold text-navy-800 hover:bg-drop-100">
+                          {item.label}: Overview
+                        </a>
+                      </li>
+                    )}
                     {item.children.map((child) => (
                       <li>
                         <a href={child.href} class="block rounded-md px-3 py-2 text-sm font-medium text-charcoal-700 hover:bg-drop-100 hover:text-navy-800">

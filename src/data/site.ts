@@ -68,21 +68,25 @@ export const nav: NavLink[] = [
     label: 'Remodeling',
     href: '/kitchen-bathroom-remodels',
     children: [
-      { label: 'Kitchen & Bathroom Remodels', href: '/kitchen-bathroom-remodels' },
       { label: 'Bathroom Remodeling', href: '/bathroom-remodeling' },
       { label: 'Kitchen Remodeling', href: '/kitchen-remodeling' },
     ],
   },
   {
-    label: 'More Services',
+    label: 'Specialty Services',
     href: '/concrete-removal',
     children: [
       { label: 'Concrete Removal', href: '/concrete-removal' },
       { label: 'New Construction Plumbing', href: '/new-construction-plumbing' },
     ],
   },
-  { label: 'About', href: '/about' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Testimonials', href: '/testimonials' },
+  {
+    label: 'About Us',
+    href: '/about',
+    children: [
+      { label: 'Gallery', href: '/gallery' },
+      { label: 'Testimonials', href: '/testimonials' },
+    ],
+  },
   { label: 'Contact', href: '/contact-us' },
 ];

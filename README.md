@@ -14,18 +14,27 @@ npm run build   # production build → ./dist/
 npm run preview # preview the production build
 ```
 
-## Custom logo & favicon
+## Brand assets: logo, favicon & water drop
 
-Drop your files into the **`public/`** folder with these exact names:
-
-| File | Purpose | Recommended specs |
+| File | Purpose | Specs |
 | --- | --- | --- |
-| `public/logo.png` | Header + footer logo | Transparent background, ~520×120 px (wide format) |
-| `public/favicon.png` | Browser tab icon | Square, 64×64 px or larger |
+| `public/logo.png` | Header + footer wordmark | Transparent background, wide format (~636×102 px) |
+| `public/favicon.ico` | Browser tab icon | Multi-size `.ico` (16/32/48 px) |
+| `src/assets/water-drop.png` | Inline brand drop icon (the `WaterDrop` component) **and** the source the favicon is built from | Square, transparent, 196×196 px or larger |
 
-Placeholder versions are already there, so **overwrite them** with your real assets.
-If your files use a different format (e.g. `.svg` or `.ico`), also update the two paths at the
-bottom of `src/data/site.ts` (`logo:` and `favicon:`) to match.
+To swap in a new water-drop icon, replace `src/assets/water-drop.png` (the `WaterDrop`
+component picks it up automatically via Astro's asset pipeline), then regenerate the favicon
+from it:
+
+```sh
+magick src/assets/water-drop.png -background none \
+  \( -clone 0 -resize 16x16 \) \( -clone 0 -resize 32x32 \) \( -clone 0 -resize 48x48 \) \
+  -delete 0 public/favicon.ico
+```
+
+`public/` is only for files served as-is at a fixed URL (like `favicon.ico`); imported UI images
+belong in `src/assets/`. The logo and favicon paths are set at the bottom of `src/data/site.ts`
+(`logo:` and `favicon:`) — update them there if you change file names or formats.
 
 ## Editing site-wide info
 
