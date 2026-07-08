@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../data/site';
+
+const items = [
+  { src: '/images/gallery/gallery-01.jpg', caption: 'John working on a commercial water heater installation!', alt: 'Commercial water heater installation in Asheville, NC' },
+  { src: '/images/gallery/gallery-02.jpg', caption: 'New shower installation', alt: 'Shower installation in Asheville, NC' },
+  { src: '/images/gallery/gallery-03.jpg', caption: 'Sewer line repair/replacement', alt: 'Sewer line repair and replacement in Asheville, NC' },
+  { src: '/images/gallery/gallery-04.jpg', caption: 'Kiddie Academy in Asheville, NC — we had a great experience working with the staff!', alt: 'Commercial plumbing at Kiddie Academy in Asheville, NC' },
+  { src: '/images/gallery/gallery-05.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-06.jpg', caption: 'Kitchen remodel', alt: 'Kitchen remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-07.jpg', caption: 'Kitchen remodel', alt: 'Kitchen remodel in Asheville, NC' },
+  { src: '/images/gallery/gallery-08.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-09.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-10.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-11.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-12.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-13.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-14.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-15.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-16.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-17.jpg', caption: '', alt: 'Bathroom remodeling in Asheville, NC' },
+  { src: '/images/gallery/gallery-18.jpg', caption: 'KOA campground, Canton — water, sewer and storm drain install', alt: 'Water, sewer and storm drain installation at KOA campground in Canton, NC' },
+  { src: '/images/gallery/gallery-19.jpg', caption: 'Starbucks, Waynesville', alt: 'Commercial plumbing at Starbucks in Waynesville, NC' },
+  { src: '/images/gallery/gallery-20.jpg', caption: 'Concrete removal', alt: 'Concrete removal in Asheville, NC' },
+  { src: '/images/gallery/gallery-21.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-22.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-23.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-24.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-25.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-26.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-27.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-28.jpg', caption: '', alt: 'Plumbing services in Asheville, NC' },
+  { src: '/images/gallery/gallery-29.jpg', caption: 'Lot clearing', alt: 'Lot clearing in Asheville, NC' },
+  { src: '/images/gallery/gallery-30.jpg', caption: 'Excavation work', alt: 'Excavation work in Asheville, NC' },
+  { src: '/images/gallery/gallery-31.jpg', caption: 'Storm debris cleanup', alt: 'Storm debris cleanup in Asheville, NC' },
+  { src: '/images/gallery/gallery-32.jpg', caption: 'Site clearing', alt: 'Site clearing in Asheville, NC' },
+  { src: '/images/gallery/gallery-33.jpg', caption: 'Home demolition', alt: 'Home demolition in Asheville, NC' },
+  { src: '/images/gallery/gallery-34.jpg', caption: 'Concrete cutting', alt: 'Concrete cutting in Asheville, NC' },
+];
+---
+
+<BaseLayout
+  title="Project Gallery"
+  description={`Browse recent plumbing, remodeling, excavation and concrete projects by Nesbitt's Plumbing across Asheville & Hendersonville, NC. Call ${site.phone} for your project.`}
+>
+  <Hero
+    title="Our Work Speaks for Itself"
+    subtitle="From water heater installs to full kitchen remodels and commercial site work — take a look at some of our recent projects across Western North Carolina."
+  />
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+    <div class="columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+      {
+        items.map((item) => (
+          <figure class="break-inside-avoid overflow-hidden rounded-2xl border border-charcoal-100 bg-white shadow-sm">
+            <a href={item.src} target="_blank" rel="noopener">
+              <img
+                src={item.src}
+                alt={item.alt}
+                loading="lazy"
+                class="w-full transition-transform duration-300 hover:scale-[1.02]"
+              />
+            </a>
+            {item.caption && (
+              <figcaption class="px-5 py-3.5 text-sm font-medium text-charcoal-700">
+                {item.caption}
+              </figcaption>
+            )}
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <CtaBand heading="Want Results Like These?" />
+</BaseLayout>

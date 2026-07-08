@@ -1,0 +1,35 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Concrete Removal"
+  description={`Concrete removal services in Asheville & Hendersonville, NC — driveways, patios, retaining walls and flatwork. Free estimates from Nesbitt's Plumbing: ${site.phone}.`}
+  heroTitle="Remove Old Concrete From Your Property"
+  heroSubtitle="Ask about Nesbitt's Plumbing's concrete removal services in the Asheville & Hendersonville, NC areas."
+  heroImage="/images/gallery/gallery-20.jpg"
+  listHeading="Types of concrete features we remove"
+  listItems={[
+    'A spalled driveway so that you can install a new, more durable driveway',
+    'An unused patio so that you can clear the way for a new landscape feature',
+    'A cracked retaining wall so that you can replace it with a stone or brick wall',
+  ]}
+  listNote="Concerned about the cost? Don't be — contact us today to get a free estimate for concrete removal services."
+  ctaHeading="Ready to Clear Out That Old Concrete?"
+>
+  <p>
+    Asheville, NC is known for its historic homes and beautiful landscapes. Unfortunately, older
+    properties have old concrete that's no longer up to par. If you're ready to rid your property
+    of worn-out concrete features, call Nesbitt's Plumbing right away.
+  </p>
+  <p>
+    We're known throughout the Asheville, NC area for our top-notch concrete removal services.
+    With {site.yearsInBusiness} years of experience, we have what it takes to get rid of concrete
+    features of all types and sizes — including flatwork. You can trust us to do the job right.
+  </p>
+  <p>
+    Call <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    for your free estimate.
+  </p>
+</ServiceLayout>

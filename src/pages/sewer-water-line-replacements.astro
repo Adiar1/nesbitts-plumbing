@@ -1,0 +1,36 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Sewer & Water Line Replacements"
+  description={`Sewer and water line replacement in Asheville & Hendersonville, NC — including cast iron, with video camera diagnosis. Call ${site.phone} to learn more.`}
+  heroTitle="Sewer & Water Line Replacement"
+  heroSubtitle="Dealing with sewer or water problems? Reach out to our Asheville and Hendersonville, NC plumbers for assistance."
+  heroImage="/images/gallery/gallery-03.jpg"
+  listHeading="3 signs your sewer line needs professional attention"
+  listItems={[
+    'You experience frequent sewage backups and blockages',
+    'Your grass is extra green and lush in some areas',
+    'You smell a sewer gas odor in or around your house',
+  ]}
+  listNote="Turn to Nesbitt's Plumbing to replace your sewer or water line."
+  ctaHeading="Dealing With Sewer or Water Line Problems?"
+>
+  <p>
+    You've been dealing with plumbing issues for a while now. Your toilet's been backing up, your
+    sinks and showers are draining slowly and you need to find a solution, soon. Turn to
+    Nesbitt's Plumbing for assistance with your Asheville or Hendersonville, NC water and sewer
+    lines. We can replace all lines, including cast iron, and we'll use a video camera system to
+    diagnose your sewer issues.
+  </p>
+  <p>
+    To replace water lines, we use a solid run of pipe with no joints, except at the connections.
+    We can run water lines under concrete driveways without having to demolish the concrete.
+  </p>
+  <p>
+    Contact us at <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    to learn more about our sewer and water line services.
+  </p>
+</ServiceLayout>

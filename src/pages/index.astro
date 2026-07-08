@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import WaterDrop from '../components/WaterDrop.astro';
+import { site } from '../data/site';
+
+const featuredServices = [
+  {
+    title: 'Plumbing Services',
+    href: '/plumbing-services',
+    image: '/images/gallery/gallery-05.jpg',
+    text: 'Repairs, fixtures, drains, water heaters, leak detection and more — handled promptly by licensed plumbers.',
+  },
+  {
+    title: 'Kitchen & Bathroom Remodels',
+    href: '/kitchen-bathroom-remodels',
+    image: '/images/gallery/gallery-06.jpg',
+    text: 'From garden tubs to gourmet kitchens, our licensed contractors turn your remodeling dreams into reality.',
+  },
+  {
+    title: 'New Construction Plumbing',
+    href: '/new-construction-plumbing',
+    image: '/images/gallery/gallery-18.jpg',
+    text: 'Complete site work and plumbing systems for residential and commercial construction projects.',
+  },
+];
+
+const plumbingList = [
+  'General plumbing repairs for sinks, faucets, drains, showers, bathtubs, toilets and more',
+  'Hot water heaters (sales, installation, service, repair, and replacement)',
+  'Pipe replacement',
+  'New construction',
+  'Leak detection',
+  'Video inspection',
+  'Sprinkler systems',
+];
+
+const remodelingList = [
+  'Kitchen remodels (sinks, cabinetry, dishwashers, garbage disposals, countertops, tile work and more)',
+  'Bathroom remodels (showers, bathtubs, sinks, toilets, cabinetry, tile work and more)',
+  'Concrete removal',
+];
+
+const highlights = [
+  {
+    title: 'Quality Plumber',
+    text: 'We take pride in leaving each customer satisfied. Whether we are installing new fixtures for your sink or servicing your hot water heater, we treat each plumbing repair with care.',
+  },
+  {
+    title: 'Receive $25 Off!',
+    text: 'Never worked with us before? We offer a $25 coupon for all of our new customers in Asheville, Hendersonville, NC, and the surrounding areas. Contact us today for all your plumbing repairs!',
+  },
+  {
+    title: 'Lower Your Utility Bill',
+    text: "Don't throw money away using old equipment with low efficiency. Allow our plumbers to service your hot water heater and save money on your utility bills every month!",
+  },
+];
+---
+
+<BaseLayout
+  title="Trusted Plumber & Remodeling Contractor"
+  description={`Nesbitt's Plumbing (NPSCorp) has served Asheville & Hendersonville, NC since 2004. 22 years of licensed, insured plumbing, water heater, and remodeling expertise. Call ${site.phone}.`}
+>
+  <Hero
+    size="lg"
+    showEstBadge
+    image="/images/hero-bathroom.jpg"
+    title="Your Trusted Asheville & Hendersonville Plumber and Remodeling Contractor"
+    subtitle={`Keeping water in-line with reliable plumbing solutions. With ${site.yearsInBusiness} years of experience, there is nothing that the licensed plumbers and contractors of Nesbitt's Plumbing can't handle — whether you have a clogged drain or a basement full of water, we will offer a prompt solution for every problem.`}
+  />
+
+  <!-- Highlights -->
+  <section class="bg-charcoal-50">
+    <div class="mx-auto grid max-w-7xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-3">
+      {
+        highlights.map((h) => (
+          <div class="rounded-2xl border border-charcoal-100 bg-white p-7 shadow-sm">
+            <WaterDrop class="h-8 w-8 text-drop-500" />
+            <h2 class="mt-4 text-xl font-bold text-navy-900">{h.title}</h2>
+            <p class="mt-3 leading-relaxed text-charcoal-600">{h.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Featured services -->
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+    <div class="max-w-2xl">
+      <p class="text-sm font-bold uppercase tracking-widest text-drop-600">What We Do</p>
+      <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-charcoal-900 sm:text-4xl">
+        One-Stop Shop for All Your Home's Needs
+      </h2>
+    </div>
+    <div class="mt-10 grid gap-8 md:grid-cols-3">
+      {
+        featuredServices.map((s) => (
+          <a
+            href={s.href}
+            class="group overflow-hidden rounded-2xl border border-charcoal-100 bg-white shadow-sm transition-shadow hover:shadow-xl"
+          >
+            <div class="h-52 overflow-hidden bg-navy-950">
+              <img
+                src={s.image}
+                alt={`${s.title} in Asheville, NC`}
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-navy-900 group-hover:text-drop-600">{s.title}</h3>
+              <p class="mt-2 leading-relaxed text-charcoal-600">{s.text}</p>
+              <p class="mt-4 font-semibold text-drop-600">Learn more &rarr;</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- About / SEO block -->
+  <section class="bg-navy-950 text-white">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-2">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-drop-400">
+            {site.legalName} &bull; {site.est}
+          </p>
+          <h2 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Nesbitt's Plumbing | Asheville &amp; Hendersonville, NC
+          </h2>
+          <p class="mt-3 text-lg font-semibold text-drop-300">
+            Plumbing, Installations, Hot Water Heaters, Contracting, Remodeling
+          </p>
+          <div class="mt-6 space-y-4 leading-relaxed text-charcoal-200">
+            <p>
+              Nesbitt's Plumbing has been providing high-quality plumbing installation and repair
+              services for Asheville, NC, Hendersonville, NC &amp; the surrounding areas since
+              {site.founded}. If you need a plumber for your residential or commercial property
+              within an hour of Asheville or Hendersonville, NC, you have come to the right place!
+              Fully licensed and insured, with {site.yearsInBusiness} years of experience,
+              Nesbitt's Plumbing can handle it all! We take pride in offering high-quality, prompt
+              and reliable service to every customer.
+            </p>
+            <p>
+              From <a href="/hot-water-heaters" class="font-semibold text-drop-300 underline-offset-2 hover:underline">hot water heater</a>
+              replacement to kitchen remodels, Nesbitt's Plumbing offers a wide range of services.
+              Licensed plumbers and contractors, we are a one-stop shop for all your home's needs!
+              Contact us today for a free estimate: <a href={site.phoneHref} class="font-semibold text-drop-300 underline-offset-2 hover:underline">{site.phone}</a>.
+            </p>
+          </div>
+          <!-- Core values -->
+          <div class="mt-8 flex flex-wrap gap-3">
+            {
+              site.values.map((v) => (
+                <span class="inline-flex items-center gap-2 rounded-full border border-drop-400/40 bg-navy-900 px-4 py-2 text-sm font-bold text-drop-300">
+                  <WaterDrop class="h-3.5 w-3.5 text-drop-400" />
+                  {v}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl bg-navy-900 p-7">
+            <h3 class="text-lg font-bold text-white">Typical Plumbing Services</h3>
+            <ul class="mt-4 space-y-2.5 text-sm leading-relaxed text-charcoal-200">
+              {
+                plumbingList.map((item) => (
+                  <li class="flex items-start gap-2.5">
+                    <WaterDrop class="mt-0.5 h-3.5 w-3.5 shrink-0 text-drop-400" />
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="rounded-2xl bg-navy-900 p-7">
+            <h3 class="text-lg font-bold text-white">Typical Remodeling Services</h3>
+            <ul class="mt-4 space-y-2.5 text-sm leading-relaxed text-charcoal-200">
+              {
+                remodelingList.map((item) => (
+                  <li class="flex items-start gap-2.5">
+                    <WaterDrop class="mt-0.5 h-3.5 w-3.5 shrink-0 text-drop-400" />
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+            <a
+              href="/contact-us"
+              class="mt-6 inline-block rounded-lg bg-drop-500 px-5 py-2.5 text-sm font-bold text-navy-950 transition-colors hover:bg-drop-400"
+            >
+              Get a Free Estimate
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial teaser -->
+  <section class="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6">
+    <WaterDrop class="mx-auto h-9 w-9 text-drop-400" />
+    <blockquote class="mt-5 text-xl font-medium leading-relaxed text-charcoal-800 sm:text-2xl">
+      "Very professional, did what they said they were going to do in a timely manner and at a
+      fair price."
+    </blockquote>
+    <p class="mt-4 font-bold text-navy-900">C. Owen &mdash; Asheville, NC</p>
+    <a href="/testimonials" class="mt-6 inline-block font-semibold text-drop-600 hover:underline">
+      Read more reviews &rarr;
+    </a>
+  </section>
+
+  <CtaBand
+    heading="Ready for Reliable Plumbing in Asheville & Hendersonville, NC?"
+    text={`Call ${site.phone} now for a free estimate — new customers receive $25 off!`}
+  />
+</BaseLayout>

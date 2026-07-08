@@ -1,0 +1,36 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Hot Water Heaters"
+  description={`Hot water heater repair, replacement and installation in Asheville & Hendersonville, NC — including tankless. Same-day service often available. Call ${site.phone}.`}
+  heroTitle="Get Hot Water When You Need It"
+  heroSubtitle="Schedule hot water heater repair in Asheville or Hendersonville, NC."
+  heroImage="/images/gallery/gallery-01.jpg"
+  listHeading="3 signs your hot water heater needs service"
+  listItems={[
+    'It needs to be repaired frequently',
+    'It takes a long time to heat your water',
+    "It's more than 15 years old",
+  ]}
+  listNote="Get in touch with Nesbitt's Plumbing in Asheville or Hendersonville, NC for hot water heater repair or replacement."
+  ctaHeading="Need Water Heater Repair or Replacement?"
+>
+  <p>
+    There are few things worse than coming home after a long day for a nice, hot shower and
+    finding out that there's no hot water. Count on Nesbitt's Plumbing for expert hot water
+    heater repair in Asheville &amp; Hendersonville, North Carolina. We offer convenient same-day
+    services.
+  </p>
+  <p>
+    Call now to schedule an appointment for water heater repair or other plumbing services:
+    <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>.
+  </p>
+  <p>
+    If you're constantly dealing with hot water issues in your home or office, you need hot water
+    heater repair or replacement in the Asheville or Hendersonville, NC area. We handle sales,
+    installation, service, repair and replacement — including gas and tankless water heaters.
+  </p>
+</ServiceLayout>

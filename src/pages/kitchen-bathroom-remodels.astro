@@ -1,0 +1,44 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Kitchen & Bathroom Remodels"
+  description={`Kitchen and bathroom remodeling in Asheville & Hendersonville, NC by licensed plumbers and contractors. Free estimates — call ${site.phone}.`}
+  heroTitle="Need Plumbing For Your Kitchen or Bathroom Remodel?"
+  heroSubtitle="Get started with a FREE estimate in Asheville or Hendersonville, NC. Let us help you with the kitchen or bathroom remodel of your dreams!"
+  heroImage="/images/gallery/gallery-06.jpg"
+  listHeading="What We Remodel"
+  listItems={[
+    'Kitchen remodels — sinks, cabinetry, dishwashers, garbage disposals, counter tops, tile work',
+    'Bathroom remodels — showers, sinks, bathtubs, toilets, cabinetry, tile work',
+  ]}
+  listNote="Still not convinced? Take a look at our testimonials page and give us a call!"
+  ctaHeading="Ready to Start Your Remodel?"
+>
+  <p>
+    With Nesbitt's Plumbing, you can have that garden tub or luxurious shower that you've always
+    wanted. Trust our kitchen and bathroom plumbing contractors to get rid of those outdated
+    fixtures and get a brand new look that will impress your guests in Asheville or
+    Hendersonville, NC! Call now for more information!
+  </p>
+
+  <h2 class="pt-2 text-2xl font-bold text-charcoal-900">
+    Asheville, NC Kitchen and Bathroom Plumbing
+  </h2>
+  <p>
+    When you work with Nesbitt's Plumbing, your home is in good hands. We are licensed plumbers
+    and contractors that will finish the job with craftsman skill. It is our mission to offer
+    quality services for every budget and promise to offer competitive rates, up-front pricing,
+    and no hidden fees to the Asheville &amp; Hendersonville, NC areas.
+  </p>
+  <p>
+    So what are you waiting for? Gather up all those magazine clippings you've been organizing
+    and let us turn your dream into a reality! Call today to speak with one of our contractors:
+    <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>.
+  </p>
+  <p>
+    <a href="/testimonials" class="font-semibold text-drop-600 hover:underline">Read our reviews &rarr;</a>
+  </p>
+</ServiceLayout>

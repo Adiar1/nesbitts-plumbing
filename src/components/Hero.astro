@@ -1,0 +1,77 @@
+---
+import { site } from '../data/site';
+import WaterDrop from './WaterDrop.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  image?: string;
+  /** 'lg' for the homepage, 'md' for interior pages */
+  size?: 'lg' | 'md';
+  showEstBadge?: boolean;
+}
+
+const { title, subtitle, image, size = 'md', showEstBadge = false } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden bg-navy-950">
+  {
+    image && (
+      <img
+        src={image}
+        alt=""
+        class="absolute inset-0 -z-10 h-full w-full object-cover"
+        loading="eager"
+      />
+    )
+  }
+  <!-- High-contrast overlay -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/95 via-navy-950/85 to-navy-900/60"></div>
+
+  <div
+    class:list={[
+      'mx-auto max-w-7xl px-4 sm:px-6',
+      size === 'lg' ? 'py-20 sm:py-28 lg:py-32' : 'py-14 sm:py-20',
+    ]}
+  >
+    <div class="max-w-3xl">
+      {
+        showEstBadge && (
+          <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-drop-400/40 bg-navy-900/70 px-4 py-1.5 text-sm font-bold tracking-widest text-drop-300">
+            <WaterDrop class="h-4 w-4 text-drop-400" />
+            {site.legalName} &bull; {site.est}
+          </p>
+        )
+      }
+      <h1
+        class:list={[
+          'font-extrabold tracking-tight text-white',
+          size === 'lg' ? 'text-4xl sm:text-5xl lg:text-6xl' : 'text-3xl sm:text-4xl lg:text-5xl',
+        ]}
+      >
+        {title}
+      </h1>
+      {
+        subtitle && (
+          <p class="mt-5 text-lg leading-relaxed text-charcoal-100 sm:text-xl">
+            {subtitle}
+          </p>
+        )
+      }
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a
+          href={site.phoneHref}
+          class="rounded-lg bg-drop-500 px-7 py-3.5 text-base font-bold text-navy-950 shadow-lg transition-colors hover:bg-drop-400"
+        >
+          Call {site.phone}
+        </a>
+        <a
+          href="/contact-us"
+          class="rounded-lg border-2 border-white/70 px-7 py-3 text-base font-bold text-white transition-colors hover:border-drop-300 hover:text-drop-300"
+        >
+          Request a Free Estimate
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

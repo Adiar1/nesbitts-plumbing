@@ -1,0 +1,37 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Pipe Replacement"
+  description={`Expert pipe replacement services in Asheville & Hendersonville, NC from the licensed pros at Nesbitt's Plumbing. Call ${site.phone} today.`}
+  heroTitle="Does Your Home Need New Pipes?"
+  heroSubtitle="Call us for pipe replacement services in Asheville or Hendersonville, NC."
+  heroImage="/images/gallery/gallery-24.jpg"
+  listHeading="When should you replace your pipes?"
+  listItems={[
+    'Blocked or slowed water flow',
+    'Corrosion or rust',
+    'Leaks from pipes or joints',
+    'Cracks or broken areas',
+    'Deteriorated pipe lining',
+  ]}
+  listNote="We make replacing your pipes easy. Contact our office today to schedule an appointment."
+  ctaHeading="Ready to Replace Your Aging Pipes?"
+>
+  <p>
+    After years of use and exposure to water, the pipes in your home will need to be replaced.
+    When you need expert pipe replacement services, you can count on the pros at Nesbitt's
+    Plumbing to get the job done right. Our team of professionals will skillfully and efficiently
+    replace pipes in your home in Hendersonville or Asheville, NC.
+  </p>
+  <p>
+    Call <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    now to get more information about replacing your plumbing system.
+  </p>
+  <p>
+    There are several warning signs that your pipes are no longer functioning as they should —
+    if you notice any of the symptoms listed here, it's time to consider a pipe replacement.
+  </p>
+</ServiceLayout>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WaterDrop from '../components/WaterDrop.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you're looking for has moved or no longer exists."
+>
+  <section class="mx-auto flex max-w-3xl flex-col items-center px-4 py-24 text-center sm:px-6">
+    <WaterDrop class="h-14 w-14 text-drop-400" />
+    <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-charcoal-900">
+      Looks like this page sprang a leak.
+    </h1>
+    <p class="mt-4 text-lg text-charcoal-600">
+      The page you're looking for has moved or no longer exists. Let's get you back on track.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a href="/" class="rounded-lg bg-navy-900 px-7 py-3 font-bold text-white transition-colors hover:bg-navy-800">
+        Back to Home
+      </a>
+      <a href={site.phoneHref} class="rounded-lg bg-drop-500 px-7 py-3 font-bold text-navy-950 transition-colors hover:bg-drop-400">
+        Call {site.phone}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

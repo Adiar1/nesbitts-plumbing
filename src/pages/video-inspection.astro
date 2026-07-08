@@ -1,0 +1,34 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Video Inspection"
+  description={`Sewer and drain video inspection services in Asheville & Hendersonville, NC. Nesbitt's Plumbing finds hard-to-diagnose problems fast. Call ${site.phone}.`}
+  heroTitle="Get a Closer Look at Your Sewer Problems"
+  heroSubtitle="We offer video inspections in Hendersonville and Asheville, NC."
+  heroImage="/images/gallery/gallery-22.jpg"
+  ctaHeading="Resolve Hard-to-Find Sewer Issues Today"
+>
+  <p>
+    Sewer problems can be difficult to diagnose without a proper view of what's actually going on
+    underneath your house. For many homeowners in Asheville and Hendersonville, NC, DIY solutions
+    amount to guesswork. Get the full picture of your sewer issues with video inspection services
+    from Nesbitt's Plumbing. We can shed light on your plumbing problems and find lasting
+    solutions.
+  </p>
+  <p>Contact us now to resolve hard-to-find sewer issues in your home.</p>
+
+  <h2 class="pt-2 text-2xl font-bold text-charcoal-900">We have the right tech for the job</h2>
+  <p>
+    To get to the root of your plumbing problems, we'll use a drain camera that's attached to a
+    flexible line. Using the camera as a guide, our plumbers can navigate your pipes to identify
+    blockages, breaks or other issues. From there, we can confidently offer plumbing repairs to
+    get your system working again.
+  </p>
+  <p>
+    Call <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    today for more information on our video inspection services.
+  </p>
+</ServiceLayout>

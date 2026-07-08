@@ -1,0 +1,116 @@
+---
+import { nav, site } from '../data/site';
+import SocialLinks from './SocialLinks.astro';
+import WaterDrop from './WaterDrop.astro';
+
+const year = new Date().getFullYear();
+const services = [
+  ...(nav.find((n) => n.label === 'Plumbing Services')?.children ?? []),
+  ...(nav.find((n) => n.label === 'More Services')?.children ?? []),
+];
+---
+
+<footer class="bg-charcoal-950 text-charcoal-200">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+    <!-- Brand -->
+    <div>
+      <a href="/" class="inline-block rounded-lg bg-white/95 p-2.5" aria-label={`${site.name} — Home`}>
+        <img src={site.logo} alt={`${site.name} logo`} class="h-12 w-auto" />
+      </a>
+      <p class="mt-4 flex items-start gap-2 text-sm leading-relaxed">
+        <WaterDrop class="mt-0.5 h-4 w-4 shrink-0 text-drop-400" />
+        <span>{site.tagline}</span>
+      </p>
+      <p class="mt-3 text-sm font-semibold tracking-wider text-drop-300">
+        {site.legalName} &bull; {site.est}
+      </p>
+      <p class="mt-2 text-sm italic text-charcoal-500">
+        {site.values.join(' · ')}
+      </p>
+      <SocialLinks class="mt-5 flex items-center gap-4 text-charcoal-200" iconClass="h-5 w-5" />
+    </div>
+
+    <!-- Services -->
+    <div>
+      <h2 class="text-sm font-bold uppercase tracking-wider text-white">Our Services</h2>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        {
+          services.map((s) => (
+            <li>
+              <a href={s.href} class="transition-colors hover:text-drop-300">
+                {s.label}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <a href="/kitchen-bathroom-remodels" class="transition-colors hover:text-drop-300">
+            Kitchen &amp; Bathroom Remodels
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <h2 class="text-sm font-bold uppercase tracking-wider text-white">Company</h2>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        <li><a href="/about" class="transition-colors hover:text-drop-300">About Us</a></li>
+        <li><a href="/gallery" class="transition-colors hover:text-drop-300">Project Gallery</a></li>
+        <li><a href="/testimonials" class="transition-colors hover:text-drop-300">Testimonials</a></li>
+        <li><a href="/contact-us" class="transition-colors hover:text-drop-300">Contact Us</a></li>
+      </ul>
+      <h2 class="mt-6 text-sm font-bold uppercase tracking-wider text-white">Hours</h2>
+      <ul class="mt-3 space-y-1.5 text-sm">
+        {
+          site.hours.map((h) => (
+            <li class="flex justify-between gap-4">
+              <span class="font-medium text-charcoal-200">{h.day}</span>
+              <span class="text-charcoal-500">{h.time}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h2 class="text-sm font-bold uppercase tracking-wider text-white">Get In Touch</h2>
+      <ul class="mt-4 space-y-3 text-sm">
+        <li>
+          <a href={site.address.mapsHref} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-drop-300">
+            {site.address.street}<br />
+            {site.address.city}, {site.address.state} {site.address.zip}
+          </a>
+        </li>
+        <li>
+          <a href={site.phoneHref} class="font-bold text-white transition-colors hover:text-drop-300">
+            {site.phone}
+          </a>
+        </li>
+        <li>
+          <a href={site.emailHref} class="break-all transition-colors hover:text-drop-300">
+            {site.email}
+          </a>
+        </li>
+      </ul>
+      <a
+        href="/contact-us"
+        class="mt-5 inline-block rounded-lg bg-drop-500 px-5 py-2.5 text-sm font-bold text-navy-950 transition-colors hover:bg-drop-400"
+      >
+        Request Service
+      </a>
+    </div>
+  </div>
+
+  <div class="border-t border-charcoal-800">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-center text-xs text-charcoal-500 sm:flex-row sm:px-6 sm:text-left">
+      <p>
+        Copyright &copy; {year} {site.name} ({site.legalName}), all rights reserved.
+      </p>
+      <p>
+        Proudly serving {site.serviceArea} since {site.founded}.
+      </p>
+    </div>
+  </div>
+</footer>

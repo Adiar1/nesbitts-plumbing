@@ -1,0 +1,39 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Kitchen Remodeling"
+  description={`Kitchen remodeling in Asheville & Hendersonville, NC — sinks, appliances, countertops, cabinets and full kitchen plumbing. Call ${site.phone} for a free estimate.`}
+  heroTitle="How to Fall in Love With Your Kitchen"
+  heroSubtitle="Hire a kitchen remodel plumber in Asheville or Hendersonville, NC."
+  heroImage="/images/gallery/gallery-07.jpg"
+  listHeading="We install everything your kitchen needs"
+  listItems={[
+    'Update old, boring or rusted sinks.',
+    'Install the latest dishwashers and appliances.',
+    'Replace dated countertops, kitchen tile and cabinets.',
+    'Handle any kitchen plumbing issue.',
+  ]}
+  listNote="From plumbing to contracting, we do it all. Call us today to make sure it's done right the first time."
+  ctaHeading="Ready to Love Your Kitchen Again?"
+>
+  <p>
+    Never leave your kitchen again. Nesbitt's Plumbing can help you create the kitchen of your
+    dreams by updating your old kitchen appliances and fixtures. Your ideal kitchen won't be
+    complete without the assistance of our licensed kitchen remodel plumbers in Asheville or
+    Hendersonville, NC. We can finish any residential or commercial job with precision and
+    without hassle.
+  </p>
+  <p>
+    From plumbing to contracting, we do it all — and we've been making clients happy and
+    transforming kitchens across Western North Carolina for years.
+  </p>
+  <p>
+    Contact us today at
+    <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    so our experienced plumbers and contractors can help you design a kitchen you love spending
+    time in.
+  </p>
+</ServiceLayout>

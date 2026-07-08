@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import WaterDrop from '../components/WaterDrop.astro';
+import { site } from '../data/site';
+
+const testimonials = [
+  {
+    quote:
+      "Had a leaking hot water heater and sump pump that was not working. Nesbitt's Plumbing was here the same day to replace the water heater! I highly recommend them!",
+    name: 'S Pitt',
+    location: '',
+  },
+  {
+    quote:
+      "Being new to the area, I had no idea which plumber to call when I discovered a small leak in my basement plumbing. The small leak I first noticed during the week became a significantly larger leak over the weekend. I called Nesbitt's on Sunday morning and within 30 minutes had a call back. Nesbitt's Plumbing was prompt, and determined that the leak originated outside the house which meant the yard had to be dug up, but they managed to dig an area that required minimal disruption to the yard and shrubbery. And even though this required more work, Nesbitt's fee was very reasonable. I will definitely call them in the future, if needed.",
+    name: 'Rebecca W.',
+    location: 'Mills River, NC',
+  },
+  {
+    quote:
+      'Very professional, did what they said they were going to do in a timely manner and at a fair price.',
+    name: 'C. Owen',
+    location: 'Asheville, NC',
+  },
+  {
+    quote:
+      'Did a great job in a very timely manner. Honest and knowledgeable. Would definitely use again!',
+    name: 'Tyson H.',
+    location: 'Swannanoa, NC',
+  },
+  {
+    quote:
+      'Absolutely outstanding service. Three generations of this family provided an outstanding service call on a Amtrol Pressure Booster. Found the leak, not in the Amtrol after all but in the cinderblock... repaired it and located the source of the leak. This guy and his family are over the top! Many thanks.',
+    name: 'Lee McClintick',
+    location: 'Asheville, NC',
+  },
+  {
+    quote:
+      "Was contacted by Nesbitt Plumbing after receiving a recommendation from Lowe's to search for assistance using Porch.com. Immediately upon completion of the form, I received a call from Nesbitt and almost as quickly had a plumber in my home replacing the failed 20 year old hot water heater. In less than 24 hours after finding water on the basement floor, we had a new water heater installed. Very professional, efficient! Thanks much!!",
+    name: 'Satisfied Customer',
+    location: '',
+  },
+  {
+    quote:
+      "Staff was courteous, knowledgeable and efficient with their time. Nesbitt's Plumbing is very affordable. I highly recommend this business. I will do business with you again.",
+    name: 'Satisfied Customer',
+    location: '',
+  },
+  {
+    quote:
+      "Nesbitt's Plumbing did an excellent job for us at the Animal Hospital and we look forward to working with them again in the future; highly recommended.",
+    name: 'G. Bodman',
+    location: 'Arden, NC',
+  },
+  {
+    quote:
+      "He followed up with an e-mail and asked me how the job was a few days later. This guy is the king of home repairs as far as I'm concerned!",
+    name: 'Dan M.',
+    location: 'Arden, NC',
+  },
+  {
+    quote:
+      'We had a water line break at an inopportune time and Nate and his team took care of the situation in a very professional manner. They also did a great job of analyzing the plumbing system in my house and making follow up recommendations.',
+    name: 'E. Dobner',
+    location: 'Asheville, NC',
+  },
+  {
+    quote:
+      "Work was done quickly, professionally, and for the estimated cost. The site was a rental house; tenants were pleased with the plumber's professionalism. He has been very good at followup.",
+    name: 'Ken C.',
+    location: 'Asheville, NC',
+  },
+  {
+    quote: 'On time, within budget and great communication.',
+    name: 'Satisfied Customer',
+    location: 'Candler, NC',
+  },
+  {
+    quote:
+      "We had an urgent issue coming in to the July 4th weekend (of course!) and had no water. Nesbitt's was able to work us into their schedule and they were responsive, prompt in arriving, and both personable and professional. They quickly identified the problem and had it fixed in no time and at a reasonable cost. I will not hesitate to use them again and to recommend them to anyone.",
+    name: 'Satisfied Customer',
+    location: '',
+  },
+  {
+    quote:
+      'Thank you so much for being professional, prompt, and above all else honest! Your customer service is the best I have experienced in a very long time and it is something I truly appreciate. You fit me in your schedule the same day I called and helped to direct us on the best option for our plumbing needs.',
+    name: 'Satisfied Customer',
+    location: '',
+  },
+];
+---
+
+<BaseLayout
+  title="Testimonials"
+  description={`See what customers across Asheville, Hendersonville, Arden and Mills River, NC say about Nesbitt's Plumbing. Call ${site.phone} for service you can trust.`}
+>
+  <Hero
+    title="Share Your Experience"
+    subtitle="Have you recently worked with one of our plumbers? Send us a message to submit your review — we can't wait to hear your feedback!"
+  />
+
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+    <div class="columns-1 gap-6 md:columns-2 lg:columns-3 [&>*]:mb-6">
+      {
+        testimonials.map((t) => (
+          <figure class="break-inside-avoid rounded-2xl border border-charcoal-100 bg-white p-7 shadow-sm">
+            <WaterDrop class="h-6 w-6 text-drop-400" />
+            <blockquote class="mt-4 leading-relaxed text-charcoal-700">"{t.quote}"</blockquote>
+            <figcaption class="mt-4">
+              <p class="font-bold text-navy-900">{t.name}</p>
+              {t.location && <p class="text-sm text-charcoal-500">{t.location}</p>}
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+    <div class="mt-10 text-center">
+      <a
+        href="/contact-us"
+        class="inline-block rounded-lg bg-navy-900 px-8 py-3.5 font-bold text-white transition-colors hover:bg-navy-800"
+      >
+        Write a Review
+      </a>
+    </div>
+  </section>
+
+  <CtaBand heading="Join Our Long List of Happy Customers" />
+</BaseLayout>

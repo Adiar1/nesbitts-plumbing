@@ -1,0 +1,64 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import WaterDrop from '../components/WaterDrop.astro';
+import { site } from '../data/site';
+
+const subServices = [
+  { label: 'Pipe Replacement', href: '/pipe-replacement' },
+  { label: 'Video Inspection', href: '/video-inspection' },
+  { label: 'Leak Detection', href: '/leak-detection' },
+  { label: 'Hot Water Heaters', href: '/hot-water-heaters' },
+  { label: 'Sewer & Water Line Replacements', href: '/sewer-water-line-replacements' },
+];
+---
+
+<ServiceLayout
+  title="Plumbing Services"
+  description={`Licensed, insured plumbing services in Asheville & Hendersonville, NC — repairs, fixtures, drains, water heaters, sump pumps and more. Call ${site.phone} for a free estimate.`}
+  heroTitle="Best Plumber in Asheville & Hendersonville, NC"
+  heroSubtitle="Prompt, friendly service. Family owned and operated, we take pride in our high-quality work. It is our goal to make sure every experience you have with Nesbitt's Plumbing is a positive one. Contact us today for a free estimate!"
+  heroImage="/images/gallery/gallery-05.jpg"
+  listHeading="General Plumbing Services Include:"
+  listItems={[
+    'Valve replacement',
+    'Video inspection',
+    'Water pressure control',
+    'Fixture repair and replacement',
+    'Toilet repair and installation',
+    'Sinks, showers, faucets',
+    'Drain cleaning',
+    'Hot water heaters — new installation, repair, gas replacement, and tankless',
+    'Sump pump and ejector pump — sale, installation, service',
+  ]}
+  ctaHeading="Work With a Plumber Dedicated to Your Satisfaction"
+>
+  <h2 class="text-2xl font-bold text-charcoal-900 sm:text-3xl">Plumbing Services</h2>
+  <p>
+    At Nesbitt's Plumbing, we strive to provide our customers high-quality service, personalized
+    for their unique needs and budgets. For your comfort and convenience, we make scheduling fast
+    and simple — with same-day appointments often available. Fully licensed and insured, we will
+    inspect every situation with a professional eye and make fair recommendations for our
+    customers.
+  </p>
+  <p>
+    Contact us today and work with a plumber that is dedicated to your satisfaction. Call
+    <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a> now!
+  </p>
+
+  <h3 class="pt-2 text-xl font-bold text-charcoal-900">Explore Our Plumbing Services</h3>
+  <ul class="!mt-3 grid gap-3 sm:grid-cols-2">
+    {
+      subServices.map((s) => (
+        <li>
+          <a
+            href={s.href}
+            class="flex items-center gap-3 rounded-xl border border-charcoal-100 bg-white px-4 py-3.5 font-semibold text-navy-900 shadow-sm transition-all hover:border-drop-300 hover:shadow-md"
+          >
+            <WaterDrop class="h-4 w-4 shrink-0 text-drop-500" />
+            {s.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</ServiceLayout>

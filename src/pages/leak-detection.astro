@@ -1,0 +1,40 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Leak Detection"
+  description={`Professional leak detection services in Asheville & Hendersonville, NC. Find and fix even the smallest leaks before they cause water damage. Call ${site.phone}.`}
+  heroTitle="Don't Let Leaks Damage Your Home"
+  heroSubtitle="Hire us for leak detection services in Asheville or Hendersonville, NC."
+  heroImage="/images/gallery/gallery-26.jpg"
+  listHeading="Interior leaks can lead to:"
+  listItems={[
+    'Mold and mildew',
+    'Increased water bills',
+    'Water damage to walls and ceilings',
+  ]}
+  listNote="Don't wait until it's too late to hire leak detection services. Contact us now to schedule an inspection."
+  ctaHeading="Stop That Trickle Before It Becomes a Flood"
+>
+  <p>
+    There are a lot of issues that can cause your pipes to leak, and they can be hard to spot
+    until it's too late. That's why the pros at Nesbitt's Plumbing offer prompt, professional
+    leak detection services to customers in Hendersonville and Asheville, NC. Our team is trained
+    to find even the smallest of leaks and fix them in a timely manner in order to prevent water
+    damage to your home.
+  </p>
+  <p>
+    Call <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    today to set up a consultation.
+  </p>
+  <h2 class="pt-2 text-2xl font-bold text-charcoal-900">
+    Stop that trickle before it becomes a flood of costly damage
+  </h2>
+  <p>
+    If left undetected, leaks can cause major damage to your home — from hidden mold growth to
+    ruined drywall and rising utility bills. Our trained technicians pinpoint the source quickly
+    so repairs stay small and affordable.
+  </p>
+</ServiceLayout>

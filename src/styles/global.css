@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand palette: Charcoal, Dark Blue (navy), Light Blue (water-drop accent) */
+  --color-charcoal-950: #16191c;
+  --color-charcoal-900: #1e2226;
+  --color-charcoal-800: #262b30;
+  --color-charcoal-700: #333a41;
+  --color-charcoal-600: #4a545e;
+  --color-charcoal-500: #64707c;
+  --color-charcoal-200: #d5dbe0;
+  --color-charcoal-100: #eef1f4;
+  --color-charcoal-50: #f7f9fa;
+
+  --color-navy-950: #071c30;
+  --color-navy-900: #0b2a47;
+  --color-navy-800: #10395f;
+  --color-navy-700: #154a7b;
+  --color-navy-600: #1b5b97;
+
+  --color-drop-600: #0e9fd8;
+  --color-drop-500: #29b4ea;
+  --color-drop-400: #4fc3f7;
+  --color-drop-300: #7dd5fa;
+  --color-drop-100: #dff4fd;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-charcoal-800);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}

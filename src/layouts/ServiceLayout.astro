@@ -1,0 +1,62 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import WaterDrop from '../components/WaterDrop.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  heroTitle: string;
+  heroSubtitle?: string;
+  heroImage?: string;
+  /** Optional list rendered as a highlight card next to the main content */
+  listHeading?: string;
+  listItems?: string[];
+  listNote?: string;
+  ctaHeading?: string;
+}
+
+const {
+  title,
+  description,
+  heroTitle,
+  heroSubtitle,
+  heroImage,
+  listHeading,
+  listItems = [],
+  listNote,
+  ctaHeading,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero title={heroTitle} subtitle={heroSubtitle} image={heroImage} />
+
+  <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
+    <div class:list={['grid gap-12', listItems.length > 0 && 'lg:grid-cols-[1fr_24rem]']}>
+      <div class="prose-plumbing max-w-3xl space-y-5 text-base leading-relaxed text-charcoal-700 sm:text-lg">
+        <slot />
+      </div>
+
+      {
+        listItems.length > 0 && (
+          <aside class="h-fit rounded-2xl border border-charcoal-100 bg-charcoal-50 p-7 shadow-sm">
+            <h2 class="text-xl font-bold text-navy-900">{listHeading}</h2>
+            <ul class="mt-5 space-y-3">
+              {listItems.map((item) => (
+                <li class="flex items-start gap-3 text-charcoal-700">
+                  <WaterDrop class="mt-1 h-4 w-4 shrink-0 text-drop-500" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            {listNote && <p class="mt-5 text-sm leading-relaxed text-charcoal-600">{listNote}</p>}
+          </aside>
+        )
+      }
+    </div>
+  </section>
+
+  <CtaBand heading={ctaHeading} />
+</BaseLayout>
