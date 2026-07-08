@@ -1,6 +1,5 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import WaterDrop from '../components/WaterDrop.astro';
 import { site } from '../data/site';
 
 const subServices = [
@@ -52,10 +51,10 @@ const subServices = [
         <li>
           <a
             href={s.href}
-            class="flex items-center gap-3 rounded-xl border border-charcoal-100 bg-white px-4 py-3.5 font-semibold text-navy-900 shadow-sm transition-all hover:border-drop-300 hover:shadow-md"
+            class="group flex items-center justify-between gap-3 rounded-xl border border-charcoal-100 bg-white px-4 py-3.5 font-semibold text-navy-900 shadow-sm transition-all hover:border-drop-300 hover:shadow-md"
           >
-            <WaterDrop class="h-4 w-4 shrink-0 text-drop-500" />
             {s.label}
+            <span class="text-drop-500 transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
           </a>
         </li>
       ))

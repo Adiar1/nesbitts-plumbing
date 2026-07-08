@@ -1,6 +1,5 @@
 ---
 import { site } from '../data/site';
-import WaterDrop from './WaterDrop.astro';
 
 interface Props {
   heading?: string;
@@ -13,9 +12,17 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative isolate overflow-hidden bg-navy-900">
-  <WaterDrop class="absolute -right-8 -top-10 h-56 w-56 rotate-12 text-navy-800/60" />
-  <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-14 sm:px-6 lg:flex-row lg:items-center">
+<section class="relative isolate overflow-hidden bg-gradient-to-tr from-navy-950 via-navy-900 to-navy-800">
+  <!-- Decorative rings: purely visual, must never intercept clicks -->
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="absolute -right-24 -top-40 h-96 w-96 rounded-full border border-drop-400/15"></div>
+    <div class="absolute -right-6 -top-24 h-64 w-64 rounded-full border border-drop-400/10"></div>
+  </div>
+
+  <div
+    class="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-14 sm:px-6 lg:flex-row lg:items-center"
+    data-reveal
+  >
     <div>
       <h2 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">{heading}</h2>
       <p class="mt-2 text-lg text-charcoal-100">{text}</p>
@@ -23,13 +30,13 @@ const {
     <div class="flex shrink-0 flex-wrap gap-4">
       <a
         href={site.phoneHref}
-        class="rounded-lg bg-drop-500 px-7 py-3.5 font-bold text-navy-950 shadow-lg transition-colors hover:bg-drop-400"
+        class="rounded-lg bg-drop-500 px-7 py-3.5 font-bold text-navy-950 shadow-glow transition-colors hover:bg-drop-400"
       >
         Call {site.phone}
       </a>
       <a
         href="/contact-us"
-        class="rounded-lg border-2 border-white/70 px-7 py-3 font-bold text-white transition-colors hover:border-drop-300 hover:text-drop-300"
+        class="rounded-lg border-2 border-white/70 bg-white/5 px-7 py-3 font-bold text-white backdrop-blur-sm transition-colors hover:border-drop-300 hover:text-drop-300"
       >
         Contact Us
       </a>

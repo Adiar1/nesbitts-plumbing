@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CtaBand from '../components/CtaBand.astro';
-import WaterDrop from '../components/WaterDrop.astro';
+import CheckIcon from '../components/CheckIcon.astro';
 import { site } from '../data/site';
 
 const featuredServices = [
@@ -46,14 +46,23 @@ const highlights = [
   {
     title: 'Quality Plumber',
     text: 'We take pride in leaving each customer satisfied. Whether we are installing new fixtures for your sink or servicing your hot water heater, we treat each plumbing repair with care.',
+    // Wrench
+    iconPath:
+      'M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z',
   },
   {
     title: 'Receive $25 Off!',
     text: 'Never worked with us before? We offer a $25 coupon for all of our new customers in Asheville, Hendersonville, NC, and the surrounding areas. Contact us today for all your plumbing repairs!',
+    // Price tag
+    iconPath:
+      'M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z',
   },
   {
     title: 'Lower Your Utility Bill',
     text: "Don't throw money away using old equipment with low efficiency. Allow our plumbers to service your hot water heater and save money on your utility bills every month!",
+    // Bolt
+    iconPath:
+      'M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z',
   },
 ];
 ---
@@ -74,9 +83,20 @@ const highlights = [
   <section class="bg-charcoal-50">
     <div class="mx-auto grid max-w-7xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-3">
       {
-        highlights.map((h) => (
-          <div class="rounded-2xl border border-charcoal-100 bg-white p-7 shadow-sm">
-            <WaterDrop class="h-8 w-8 text-drop-500" />
+        highlights.map((h, i) => (
+          <div
+            class:list={[
+              'rounded-2xl border border-charcoal-100 bg-white p-7 shadow-sm transition-shadow hover:shadow-float',
+              i === 1 && 'md:-translate-y-4',
+            ]}
+            data-reveal
+            style={`--reveal-delay: ${i * 90}ms`}
+          >
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-drop-100 text-drop-600">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d={h.iconPath} />
+              </svg>
+            </span>
             <h2 class="mt-4 text-xl font-bold text-navy-900">{h.title}</h2>
             <p class="mt-3 leading-relaxed text-charcoal-600">{h.text}</p>
           </div>
@@ -87,7 +107,7 @@ const highlights = [
 
   <!-- Featured services -->
   <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-    <div class="max-w-2xl">
+    <div class="max-w-2xl" data-reveal>
       <p class="text-sm font-bold uppercase tracking-widest text-drop-600">What We Do</p>
       <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-charcoal-900 sm:text-4xl">
         One-Stop Shop for All Your Home's Needs
@@ -95,10 +115,15 @@ const highlights = [
     </div>
     <div class="mt-10 grid gap-8 md:grid-cols-3">
       {
-        featuredServices.map((s) => (
+        featuredServices.map((s, i) => (
           <a
             href={s.href}
-            class="group overflow-hidden rounded-2xl border border-charcoal-100 bg-white shadow-sm transition-shadow hover:shadow-xl"
+            class:list={[
+              'group overflow-hidden rounded-2xl border border-charcoal-100 bg-white shadow-sm transition-shadow hover:shadow-float',
+              i === 1 && 'md:mt-10',
+            ]}
+            data-reveal
+            style={`--reveal-delay: ${i * 90}ms`}
           >
             <div class="h-52 overflow-hidden bg-navy-950">
               <img
@@ -120,10 +145,10 @@ const highlights = [
   </section>
 
   <!-- About / SEO block -->
-  <section class="bg-navy-950 text-white">
+  <section class="relative bg-navy-950 text-white">
     <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-      <div class="grid gap-12 lg:grid-cols-2">
-        <div>
+      <div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+        <div data-reveal>
           <p class="text-sm font-bold uppercase tracking-widest text-drop-400">
             {site.legalName} &bull; {site.est}
           </p>
@@ -154,8 +179,7 @@ const highlights = [
           <div class="mt-8 flex flex-wrap gap-3">
             {
               site.values.map((v) => (
-                <span class="inline-flex items-center gap-2 rounded-full border border-drop-400/40 bg-navy-900 px-4 py-2 text-sm font-bold text-drop-300">
-                  <WaterDrop class="h-3.5 w-3.5 text-drop-400" />
+                <span class="inline-flex items-center rounded-full border border-drop-400/40 bg-navy-900 px-4 py-2 text-sm font-bold text-drop-300">
                   {v}
                 </span>
               ))
@@ -163,27 +187,35 @@ const highlights = [
           </div>
         </div>
 
-        <div class="grid gap-6 sm:grid-cols-2">
-          <div class="rounded-2xl bg-navy-900 p-7">
+        <!-- Service list cards: lifted so they break across the section edge -->
+        <div class="grid gap-6 sm:grid-cols-2 lg:-mt-32 lg:grid-cols-1">
+          <div
+            class="rounded-2xl border border-white/10 bg-navy-900 p-7 shadow-float"
+            data-reveal
+          >
             <h3 class="text-lg font-bold text-white">Typical Plumbing Services</h3>
             <ul class="mt-4 space-y-2.5 text-sm leading-relaxed text-charcoal-200">
               {
                 plumbingList.map((item) => (
                   <li class="flex items-start gap-2.5">
-                    <WaterDrop class="mt-0.5 h-3.5 w-3.5 shrink-0 text-drop-400" />
+                    <CheckIcon class="mt-0.5 h-4 w-4 shrink-0 text-drop-400" />
                     <span>{item}</span>
                   </li>
                 ))
               }
             </ul>
           </div>
-          <div class="rounded-2xl bg-navy-900 p-7">
+          <div
+            class="rounded-2xl border border-white/10 bg-navy-900 p-7 shadow-float"
+            data-reveal
+            style="--reveal-delay: 90ms"
+          >
             <h3 class="text-lg font-bold text-white">Typical Remodeling Services</h3>
             <ul class="mt-4 space-y-2.5 text-sm leading-relaxed text-charcoal-200">
               {
                 remodelingList.map((item) => (
                   <li class="flex items-start gap-2.5">
-                    <WaterDrop class="mt-0.5 h-3.5 w-3.5 shrink-0 text-drop-400" />
+                    <CheckIcon class="mt-0.5 h-4 w-4 shrink-0 text-drop-400" />
                     <span>{item}</span>
                   </li>
                 ))
@@ -191,7 +223,7 @@ const highlights = [
             </ul>
             <a
               href="/contact-us"
-              class="mt-6 inline-block rounded-lg bg-drop-500 px-5 py-2.5 text-sm font-bold text-navy-950 transition-colors hover:bg-drop-400"
+              class="mt-6 inline-block rounded-lg bg-drop-500 px-5 py-2.5 text-sm font-bold text-navy-950 shadow-glow transition-colors hover:bg-drop-400"
             >
               Get a Free Estimate
             </a>
@@ -202,9 +234,9 @@ const highlights = [
   </section>
 
   <!-- Testimonial teaser -->
-  <section class="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6">
-    <WaterDrop class="mx-auto h-9 w-9 text-drop-400" />
-    <blockquote class="mt-5 text-xl font-medium leading-relaxed text-charcoal-800 sm:text-2xl">
+  <section class="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6" data-reveal>
+    <p class="font-serif text-7xl leading-none text-drop-300" aria-hidden="true">&ldquo;</p>
+    <blockquote class="text-xl font-medium leading-relaxed text-charcoal-800 sm:text-2xl">
       "Very professional, did what they said they were going to do in a timely manner and at a
       fair price."
     </blockquote>

@@ -15,62 +15,96 @@ const { title, subtitle, image, size = 'md', showEstBadge = false } = Astro.prop
 ---
 
 <section class="relative isolate overflow-hidden bg-navy-950">
-  {
-    image && (
-      <img
-        src={image}
-        alt=""
-        class="absolute inset-0 -z-10 h-full w-full object-cover"
-        loading="eager"
-      />
-    )
-  }
-  <!-- High-contrast overlay -->
-  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/95 via-navy-950/85 to-navy-900/60"></div>
+  <!-- Soft ambient glow, top-left -->
+  <div
+    class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-drop-500/10 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
 
   <div
     class:list={[
       'mx-auto max-w-7xl px-4 sm:px-6',
-      size === 'lg' ? 'py-20 sm:py-28 lg:py-32' : 'py-14 sm:py-20',
+      size === 'lg' ? 'py-10 sm:py-16 lg:py-24' : 'py-8 sm:py-12 lg:py-16',
     ]}
   >
-    <div class="max-w-3xl">
+    <div class="grid items-center lg:grid-cols-12">
       {
-        showEstBadge && (
-          <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-drop-400/40 bg-navy-900/70 px-4 py-1.5 text-sm font-bold tracking-widest text-drop-300">
-            <WaterDrop class="h-4 w-4 text-drop-400" />
-            {site.legalName} &bull; {site.est}
-          </p>
+        image && (
+          <div
+            class:list={[
+              'relative motion-safe:animate-rise lg:col-span-7 lg:col-start-6 lg:row-start-1',
+              size === 'lg' ? 'h-64 sm:h-96 lg:h-[32rem]' : 'h-56 sm:h-72 lg:h-[24rem]',
+            ]}
+          >
+            <img
+              src={image}
+              alt=""
+              class="h-full w-full rounded-2xl object-cover shadow-float"
+              loading="eager"
+            />
+            <div class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" aria-hidden="true" />
+            <!-- Frosted trust chip floating on the photo -->
+            <p class="absolute right-4 top-4 rounded-full border border-white/25 bg-navy-950/40 px-4 py-1.5 text-sm font-bold tracking-wide text-white shadow-lg backdrop-blur-md">
+              {site.yearsInBusiness} Years of Service
+            </p>
+          </div>
         )
       }
-      <h1
+
+      <!-- Content card, overlapping the photo -->
+      <div
         class:list={[
-          'font-extrabold tracking-tight text-white',
-          size === 'lg' ? 'text-4xl sm:text-5xl lg:text-6xl' : 'text-3xl sm:text-4xl lg:text-5xl',
+          'relative z-10 motion-safe:animate-rise motion-safe:[animation-delay:120ms] lg:row-start-1',
+          image
+            ? 'mx-3 -mt-14 sm:mx-6 sm:-mt-20 lg:col-span-6 lg:col-start-1 lg:m-0'
+            : 'lg:col-span-8 lg:col-start-1',
         ]}
       >
-        {title}
-      </h1>
-      {
-        subtitle && (
-          <p class="mt-5 text-lg leading-relaxed text-charcoal-100 sm:text-xl">
-            {subtitle}
-          </p>
-        )
-      }
-      <div class="mt-8 flex flex-wrap items-center gap-4">
-        <a
-          href={site.phoneHref}
-          class="rounded-lg bg-drop-500 px-7 py-3.5 text-base font-bold text-navy-950 shadow-lg transition-colors hover:bg-drop-400"
+        <div
+          class:list={[
+            'rounded-2xl border border-white/10 bg-navy-900 shadow-float',
+            size === 'lg' ? 'p-7 sm:p-10 lg:p-12' : 'p-6 sm:p-8 lg:p-10',
+          ]}
         >
-          Call {site.phone}
-        </a>
-        <a
-          href="/contact-us"
-          class="rounded-lg border-2 border-white/70 px-7 py-3 text-base font-bold text-white transition-colors hover:border-drop-300 hover:text-drop-300"
-        >
-          Request a Free Estimate
-        </a>
+          {
+            showEstBadge && (
+              <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-drop-400/40 bg-navy-950/60 px-4 py-1.5 text-sm font-bold tracking-widest text-drop-300">
+                <WaterDrop class="h-4 w-4 text-drop-400" />
+                {site.legalName} &bull; {site.est}
+              </p>
+            )
+          }
+          <h1
+            class:list={[
+              'font-extrabold tracking-tight text-white',
+              size === 'lg' ? 'text-3xl sm:text-4xl xl:text-5xl' : 'text-2xl sm:text-3xl xl:text-4xl',
+            ]}
+          >
+            {title}
+          </h1>
+          {
+            subtitle && (
+              <p class="mt-4 leading-relaxed text-charcoal-100 sm:text-lg">
+                {subtitle}
+              </p>
+            )
+          }
+          <div class="mt-7 flex flex-wrap items-center gap-4">
+            <a
+              href={site.phoneHref}
+              class="rounded-lg bg-drop-500 px-7 py-3.5 text-base font-bold text-navy-950 shadow-glow transition-colors hover:bg-drop-400"
+            >
+              Call {site.phone}
+            </a>
+            <a
+              href="/contact-us"
+              class="rounded-lg border-2 border-white/70 bg-white/5 px-7 py-3 text-base font-bold text-white backdrop-blur-sm transition-colors hover:border-drop-300 hover:text-drop-300"
+            >
+              Request a Free Estimate
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

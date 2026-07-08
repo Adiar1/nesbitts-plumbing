@@ -2,7 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CtaBand from '../components/CtaBand.astro';
-import WaterDrop from '../components/WaterDrop.astro';
+import CheckIcon from '../components/CheckIcon.astro';
 
 interface Props {
   title: string;
@@ -35,23 +35,27 @@ const {
 
   <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
     <div class:list={['grid gap-12', listItems.length > 0 && 'lg:grid-cols-[1fr_24rem]']}>
-      <div class="prose-plumbing max-w-3xl space-y-5 text-base leading-relaxed text-charcoal-700 sm:text-lg">
+      <div class="prose-plumbing max-w-3xl space-y-5 text-base leading-relaxed text-charcoal-700 sm:text-lg" data-reveal>
         <slot />
       </div>
 
       {
         listItems.length > 0 && (
-          <aside class="h-fit rounded-2xl border border-charcoal-100 bg-charcoal-50 p-7 shadow-sm">
-            <h2 class="text-xl font-bold text-navy-900">{listHeading}</h2>
+          <aside
+            class="h-fit rounded-2xl border border-charcoal-100 bg-charcoal-50 p-7 shadow-sm lg:-mt-24 lg:border-white/10 lg:bg-navy-900 lg:text-charcoal-200 lg:shadow-float"
+            data-reveal
+            style="--reveal-delay: 90ms"
+          >
+            <h2 class="text-xl font-bold text-navy-900 lg:text-white">{listHeading}</h2>
             <ul class="mt-5 space-y-3">
               {listItems.map((item) => (
-                <li class="flex items-start gap-3 text-charcoal-700">
-                  <WaterDrop class="mt-1 h-4 w-4 shrink-0 text-drop-500" />
+                <li class="flex items-start gap-3 text-charcoal-700 lg:text-charcoal-200">
+                  <CheckIcon class="mt-1 h-4 w-4 shrink-0 text-drop-500 lg:text-drop-400" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-            {listNote && <p class="mt-5 text-sm leading-relaxed text-charcoal-600">{listNote}</p>}
+            {listNote && <p class="mt-5 text-sm leading-relaxed text-charcoal-600 lg:text-charcoal-200">{listNote}</p>}
           </aside>
         )
       }

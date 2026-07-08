@@ -27,6 +27,10 @@ const fullTitle = `${title} | ${site.name} — Asheville & Hendersonville, NC`;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <script is:inline>
+      // Gate for scroll-reveal styles: without JS, content stays visible.
+      document.documentElement.classList.add('js');
+    </script>
   </head>
   <body class="flex min-h-screen flex-col">
     <Header />
@@ -35,5 +39,25 @@ const fullTitle = `${title} | ${site.name} — Asheville & Hendersonville, NC`;
     </main>
     <Footer />
     <StickyCallBar />
+
+    <script>
+      const revealables = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        );
+        revealables.forEach((el) => observer.observe(el));
+      } else {
+        revealables.forEach((el) => el.classList.add('is-revealed'));
+      }
+    </script>
   </body>
 </html>
