@@ -74,7 +74,7 @@ export const nav: NavLink[] = [
   },
   {
     label: 'Specialty Services',
-    href: '/concrete-removal',
+    href: '/specialty-services',
     children: [
       { label: 'Concrete Removal', href: '/concrete-removal' },
       { label: 'New Construction Plumbing', href: '/new-construction-plumbing' },

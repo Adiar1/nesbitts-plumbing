@@ -1,0 +1,54 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+
+const subServices = [
+  { label: 'Concrete Removal', href: '/concrete-removal' },
+  { label: 'New Construction Plumbing', href: '/new-construction-plumbing' },
+];
+---
+
+<ServiceLayout
+  title="Specialty Services"
+  description={`Specialty services in Asheville & Hendersonville, NC: concrete removal and new construction plumbing from licensed pros. Call ${site.phone} for a free estimate.`}
+  heroTitle="Specialty Plumbing & Site Services"
+  heroSubtitle="Some jobs go beyond a leak or a fixture. When you need old concrete cleared or full plumbing for a new build, we bring the crews and equipment to Asheville and Hendersonville, NC."
+  heroImage="/images/gallery/gallery-18.jpg"
+  listHeading="Our Specialty Services Cover:"
+  listItems={[
+    'Concrete removal: driveways, patios, retaining walls and flatwork',
+    'New construction plumbing for residential and commercial builds',
+    'Site work and excavation',
+    'Water, sewer and storm drain installation',
+  ]}
+  ctaHeading="Have a Bigger Project in Mind?"
+>
+  <h2 class="text-2xl font-bold text-charcoal-900 sm:text-3xl">Specialty Services</h2>
+  <p>
+    Not every job is a repair. Nesbitt's Plumbing also takes on the heavier work that turns a
+    property over, from tearing out worn concrete to running the plumbing for a building that
+    isn't there yet. We handle both residential and commercial projects across Asheville and
+    Hendersonville, NC, with the same licensed crews you'd get for any other job.
+  </p>
+  <p>
+    Tell us what you're planning and we'll give you a straight answer and a free estimate. Call
+    <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a> now!
+  </p>
+
+  <h3 class="pt-2 text-xl font-bold text-charcoal-900">Explore Our Specialty Services</h3>
+  <ul class="!mt-3 grid gap-3 sm:grid-cols-2">
+    {
+      subServices.map((s) => (
+        <li>
+          <a
+            href={s.href}
+            class="group flex items-center justify-between gap-3 rounded-xl border border-charcoal-100 bg-white px-4 py-3.5 font-semibold text-navy-900 shadow-sm transition-all hover:border-drop-300 hover:shadow-md"
+          >
+            {s.label}
+            <span class="text-drop-500 transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</ServiceLayout>
