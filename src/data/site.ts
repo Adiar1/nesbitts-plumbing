@@ -37,7 +37,7 @@ export const site = {
   },
 
   /**
-   * Custom brand assets — drop your files into the `public/` folder.
+   * Custom brand assets: drop your files into the `public/` folder.
    * If your files use a different extension (e.g. .png), just update
    * these two paths to match (e.g. '/logo.png' and '/favicon.png').
    */

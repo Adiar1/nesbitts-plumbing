@@ -34,7 +34,7 @@ const isActive = (href: string) =>
   <!-- Main navigation: frosted so page content glows through on scroll -->
   <div class="border-b border-white/40 bg-white/85 backdrop-blur-md">
     <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-      <a href="/" class="flex shrink-0 items-center gap-2" aria-label={`${site.name} — Home`}>
+      <a href="/" class="flex shrink-0 items-center gap-2" aria-label={`${site.name} Home`}>
         <img src={site.logo} alt={`${site.name} logo`} class="h-11 w-auto sm:h-12" />
         <span class="sr-only">{site.name}</span>
       </a>
@@ -134,7 +134,7 @@ const isActive = (href: string) =>
                   <ul class="mt-1 space-y-1 border-l-2 border-drop-300 pl-4">
                     <li>
                       <a href={item.href} class="block rounded-md px-3 py-2 text-sm font-semibold text-navy-800 hover:bg-drop-100">
-                        {item.label} — Overview
+                        {item.label}: Overview
                       </a>
                     </li>
                     {item.children.map((child) => (
