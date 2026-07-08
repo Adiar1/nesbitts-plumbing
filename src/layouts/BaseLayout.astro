@@ -22,7 +22,7 @@ const fullTitle = `${title} | ${site.name} - Asheville & Hendersonville, NC`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href={site.favicon} />
+    <link rel="icon" type="image/x-icon" href={site.favicon} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
