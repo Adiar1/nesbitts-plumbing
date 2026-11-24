@@ -1,0 +1,45 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Pipe Locating Services"
+  description={`Pipe locating in Asheville & Hendersonville, NC: find buried water and sewer lines before you dig, build or repair. Call Nesbitt's Plumbing at ${site.phone}.`}
+  heroTitle="Pipe Locating Services"
+  heroSubtitle="Know exactly where your buried water and sewer lines run before anyone starts digging in Asheville, Hendersonville, NC and the surrounding areas."
+  heroImage="/images/gallery/gallery-21.jpg"
+  listHeading="When to Call for Pipe Locating:"
+  listItems={[
+    'Before digging for an addition, deck, fence, pool or driveway',
+    'Finding a leak or break on a buried water line',
+    'Locating a sewer line, cleanout or septic connection',
+    'Planning a water or sewer line replacement',
+    'Older properties with no record of where lines were run',
+  ]}
+  listNote="Pair pipe locating with a video inspection to see the condition of your sewer line, not just where it is."
+  ctaHeading="Need to Find a Buried Line?"
+  photosHeading="Water & Sewer Line Work"
+  photos={[
+    { src: '/images/gallery/gallery-21.jpg', alt: 'Plumber working on buried pipes in a trench in Asheville, NC', caption: 'Trench work on buried lines' },
+    { src: '/images/gallery/gallery-03.jpg', alt: 'Sewer line repair and replacement in Asheville, NC', caption: 'Sewer line repair/replacement' },
+    { src: '/images/gallery/excavator-pipe-removal.jpg', alt: 'Excavator removing an old corrugated pipe in Western North Carolina', caption: 'Digging out an old failed pipe' },
+  ]}
+>
+  <h2 class="text-2xl font-bold text-charcoal-900 sm:text-3xl">Find It Before You Dig</h2>
+  <p>
+    Digging blind is how water lines get cut and sewer lines get crushed. Nesbitt's Plumbing
+    locates buried water and sewer lines on your property so you know where they run before work
+    begins, whether you're planning a project or trying to track down a problem.
+  </p>
+  <p>
+    Public utility lines are marked for free through NC 811, but private lines on your side of the
+    meter usually aren't: the water line to your house, your sewer lateral, or lines out to a
+    garage, barn or second building. That's where we come in. Once a line is found, we can mark it,
+    repair it, or replace it.
+  </p>
+  <p>
+    Call <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    to schedule pipe locating.
+  </p>
+</ServiceLayout>

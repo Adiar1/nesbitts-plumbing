@@ -4,11 +4,11 @@ import { site } from '../data/site';
 ---
 
 <ServiceLayout
-  title="Sewer & Water Line Replacements"
+  title="Water & Sewer Line Replacement"
   description={`Sewer and water line replacement in Asheville & Hendersonville, NC, including cast iron, with video camera diagnosis. Call ${site.phone} to learn more.`}
-  heroTitle="Sewer & Water Line Replacement"
-  heroSubtitle="Dealing with sewer or water problems? Reach out to our Asheville and Hendersonville, NC plumbers for assistance."
-  heroImage="/images/gallery/gallery-03.jpg"
+  heroTitle="Water & Sewer Line Replacement"
+  heroSubtitle="Dealing with sewer or water line problems? Our Asheville and Hendersonville, NC crews dig out failing lines and replace them, with our own equipment."
+  heroImage="/images/gallery/excavator-pipe-removal.jpg"
   listHeading="3 signs your sewer line needs professional attention"
   listItems={[
     'You experience frequent sewage backups and blockages',
@@ -17,6 +17,11 @@ import { site } from '../data/site';
   ]}
   listNote="Turn to Nesbitt's Plumbing to replace your sewer or water line."
   ctaHeading="Dealing With Sewer or Water Line Problems?"
+  photos={[
+    { src: '/images/gallery/excavator-pipe-removal.jpg', alt: 'Excavator removing an old corrugated pipe in Western North Carolina', caption: 'Digging out an old failed pipe' },
+    { src: '/images/gallery/gallery-03.jpg', alt: 'Sewer line repair and replacement in Asheville, NC', caption: 'Sewer line repair/replacement' },
+    { src: '/images/gallery/gallery-21.jpg', alt: 'Plumber working on buried pipes in a trench in Asheville, NC', caption: 'Trench work on buried lines' },
+  ]}
 >
   <p>
     You've been dealing with plumbing issues for a while now. Your toilet's been backing up, your
@@ -30,7 +35,8 @@ import { site } from '../data/site';
     We can run water lines under concrete driveways without having to demolish the concrete.
   </p>
   <p>
-    Contact us at <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    Not sure exactly where your lines run? Our <a href="/pipe-locating" class="font-semibold text-drop-600 hover:underline">pipe locating service</a>
+    finds them before we dig. Contact us at <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
     to learn more about our sewer and water line services.
   </p>
 </ServiceLayout>

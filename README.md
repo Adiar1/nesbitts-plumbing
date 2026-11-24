@@ -38,7 +38,8 @@ belong in `src/assets/`. The logo and favicon paths are set at the bottom of `sr
 
 ## Editing site-wide info
 
-All contact info, hours, social links, taglines, and navigation live in one file:
+All contact info, hours, social links, taglines, the homepage mission statement, and navigation
+live in one file:
 `src/data/site.ts`. Edit there and every page updates.
 
 ## Contact form

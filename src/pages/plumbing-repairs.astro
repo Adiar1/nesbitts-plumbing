@@ -1,0 +1,49 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { site } from '../data/site';
+---
+
+<ServiceLayout
+  title="Plumbing Repairs"
+  description={`Plumbing repairs in Asheville & Hendersonville, NC: leaks, clogged drains, running toilets, faucets, valves and more from licensed plumbers. Call ${site.phone} for a free estimate.`}
+  heroTitle="Plumbing Repairs Done Right the First Time"
+  heroSubtitle="Leaks, clogs and broken fixtures fixed promptly by licensed plumbers in Asheville, Hendersonville, NC and the surrounding areas."
+  heroImage="/images/gallery/under-sink-valve-repair.jpg"
+  listHeading="Common Repairs We Handle:"
+  listItems={[
+    'Leaking pipes, faucets and fittings',
+    'Clogged or slow drains',
+    'Running, leaking or clogged toilets',
+    'Shut-off and pressure valves',
+    'Low or uneven water pressure',
+    'Shower and tub valves and fixtures',
+    'Frozen or burst pipes',
+    'Water heater, sump pump and ejector pump repair',
+  ]}
+  listNote="Not sure what's wrong? Describe the problem when you call and we'll tell you what to expect."
+  ctaHeading="Need Something Fixed?"
+  photosHeading="Recent Repair Work"
+  photos={[
+    { src: '/images/gallery/under-sink-valve-repair.jpg', alt: 'Plumbers replacing a valve under a bathroom sink in Asheville, NC', caption: 'Replacing a valve under a bathroom sink' },
+    { src: '/images/gallery/shower-fixture-install.jpg', alt: 'Shower head and hand shower installed on green tile in Asheville, NC', caption: 'Shower fixture and hand shower install' },
+    { src: '/images/gallery/gallery-01.jpg', alt: 'Commercial water heater installation in Asheville, NC', caption: 'Commercial water heater work' },
+  ]}
+>
+  <h2 class="text-2xl font-bold text-charcoal-900 sm:text-3xl">Plumbing Repairs</h2>
+  <p>
+    A small leak or a slow drain rarely stays small. Nesbitt's Plumbing tracks down the cause,
+    explains what we found in plain terms, and fixes it properly so you're not calling us back for
+    the same problem next month. We're fully licensed and insured, and same-day appointments are
+    often available.
+  </p>
+  <p>
+    From a dripping faucet to a pipe that let go inside a wall, our plumbers have
+    {site.yearsInBusiness} years of experience with homes and businesses across Asheville and
+    Hendersonville, NC. If the job turns out to be bigger than a repair, like a failing water or
+    sewer line, we have the crews and equipment to handle that too.
+  </p>
+  <p>
+    Call <a href={site.phoneHref} class="font-semibold text-drop-600 hover:underline">{site.phone}</a>
+    for a free estimate.
+  </p>
+</ServiceLayout>

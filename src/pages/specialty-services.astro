@@ -3,31 +3,40 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
 import { site } from '../data/site';
 
 const subServices = [
-  { label: 'Concrete Removal', href: '/concrete-removal' },
+  { label: 'Water & Sewer Line Replacement', href: '/sewer-water-line-replacements' },
+  { label: 'Pipe Locating', href: '/pipe-locating' },
   { label: 'New Construction Plumbing', href: '/new-construction-plumbing' },
+  { label: 'Concrete Removal', href: '/concrete-removal' },
 ];
 ---
 
 <ServiceLayout
   title="Specialty Services"
-  description={`Specialty services in Asheville & Hendersonville, NC: concrete removal and new construction plumbing from licensed pros. Call ${site.phone} for a free estimate.`}
+  description={`Specialty services in Asheville & Hendersonville, NC: water and sewer line replacement, pipe locating, new construction plumbing and concrete removal. Call ${site.phone} for a free estimate.`}
   heroTitle="Specialty Plumbing & Site Services"
-  heroSubtitle="Some jobs go beyond a leak or a fixture. When you need old concrete cleared or full plumbing for a new build, we bring the crews and equipment to Asheville and Hendersonville, NC."
-  heroImage="/images/gallery/gallery-18.jpg"
+  heroSubtitle="Some jobs go beyond a leak or a fixture. When you need a water or sewer line replaced, a buried pipe found, or full plumbing for a new build, we bring the crews and equipment to Asheville and Hendersonville, NC."
+  heroImage="/images/gallery/excavator-pipe-removal.jpg"
   listHeading="Our Specialty Services Cover:"
   listItems={[
-    'Concrete removal: driveways, patios, retaining walls and flatwork',
+    'Water and sewer line replacement, including cast iron',
+    'Pipe locating for buried water and sewer lines',
     'New construction plumbing for residential and commercial builds',
-    'Site work and excavation',
     'Water, sewer and storm drain installation',
+    'Excavation for plumbing work',
+    'Concrete removal: driveways, patios, retaining walls and flatwork',
+  ]}
+  photos={[
+    { src: '/images/gallery/excavator-pipe-removal.jpg', alt: 'Excavator removing an old corrugated pipe in Western North Carolina', caption: 'Digging out an old failed pipe' },
+    { src: '/images/gallery/gallery-18.jpg', alt: 'Water, sewer and storm drain installation at KOA campground in Canton, NC', caption: 'KOA campground, Canton: water, sewer and storm drain install' },
+    { src: '/images/gallery/gallery-20.jpg', alt: 'Concrete removal in Asheville, NC', caption: 'Concrete removal' },
   ]}
   ctaHeading="Have a Bigger Project in Mind?"
 >
   <h2 class="text-2xl font-bold text-charcoal-900 sm:text-3xl">Specialty Services</h2>
   <p>
-    Not every job is a repair. Nesbitt's Plumbing also takes on the heavier work that turns a
-    property over, from tearing out worn concrete to running the plumbing for a building that
-    isn't there yet. We handle both residential and commercial projects across Asheville and
+    Not every job is a repair. Nesbitt's Plumbing also takes on the heavier work: replacing failing
+    water and sewer lines, finding buried pipes before anyone digs, running the plumbing for a
+    building that isn't there yet, and tearing out worn concrete. We handle both residential and commercial projects across Asheville and
     Hendersonville, NC, with the same licensed crews you'd get for any other job.
   </p>
   <p>

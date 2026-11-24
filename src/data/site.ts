@@ -7,6 +7,9 @@ export const site = {
   /** Assumes the current year is 2026 → 22 years in business. */
   yearsInBusiness: 22,
   values: ['Attitude', 'Courage', 'Training'],
+  /** Shown on the homepage. Replace with the company's own wording any time. */
+  mission:
+    "Our mission is to keep water in-line for every home and business we serve across Western North Carolina: honest answers, fair prices, and work done right the first time by a crew that treats your property like its own.",
 
   phone: '(828) 398-4700',
   phoneHref: 'tel:+18283984700',
@@ -57,27 +60,21 @@ export const nav: NavLink[] = [
     label: 'Plumbing Services',
     href: '/plumbing-services',
     children: [
+      { label: 'Plumbing Repairs', href: '/plumbing-repairs' },
       { label: 'Pipe Replacement', href: '/pipe-replacement' },
       { label: 'Video Inspection', href: '/video-inspection' },
       { label: 'Leak Detection', href: '/leak-detection' },
       { label: 'Hot Water Heaters', href: '/hot-water-heaters' },
-      { label: 'Sewer & Water Line Replacements', href: '/sewer-water-line-replacements' },
-    ],
-  },
-  {
-    label: 'Remodeling',
-    href: '/kitchen-bathroom-remodels',
-    children: [
-      { label: 'Bathroom Remodeling', href: '/bathroom-remodeling' },
-      { label: 'Kitchen Remodeling', href: '/kitchen-remodeling' },
     ],
   },
   {
     label: 'Specialty Services',
     href: '/specialty-services',
     children: [
-      { label: 'Concrete Removal', href: '/concrete-removal' },
+      { label: 'Water & Sewer Line Replacement', href: '/sewer-water-line-replacements' },
+      { label: 'Pipe Locating', href: '/pipe-locating' },
       { label: 'New Construction Plumbing', href: '/new-construction-plumbing' },
+      { label: 'Concrete Removal', href: '/concrete-removal' },
     ],
   },
   {

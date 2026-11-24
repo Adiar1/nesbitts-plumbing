@@ -3,11 +3,11 @@ import ServiceLayout from '../layouts/ServiceLayout.astro';
 import { site } from '../data/site';
 
 const subServices = [
+  { label: 'Plumbing Repairs', href: '/plumbing-repairs' },
   { label: 'Pipe Replacement', href: '/pipe-replacement' },
   { label: 'Video Inspection', href: '/video-inspection' },
   { label: 'Leak Detection', href: '/leak-detection' },
   { label: 'Hot Water Heaters', href: '/hot-water-heaters' },
-  { label: 'Sewer & Water Line Replacements', href: '/sewer-water-line-replacements' },
 ];
 ---
 
@@ -59,4 +59,9 @@ const subServices = [
       ))
     }
   </ul>
+
+  <p class="text-base">
+    Need heavier work like a water or sewer line replacement, pipe locating, or new construction
+    plumbing? See our <a href="/specialty-services" class="font-semibold text-drop-600 hover:underline">specialty services</a>.
+  </p>
 </ServiceLayout>
